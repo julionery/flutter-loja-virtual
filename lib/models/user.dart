@@ -11,6 +11,12 @@ class User {
 
   String id;
   String name;
+
+  @override
+  String toString() {
+    return 'User{id: $id, name: $name, email: $email}';
+  }
+
   String email;
   String password;
 
@@ -18,6 +24,8 @@ class User {
 
   DocumentReference get firestoreRef =>
       Firestore.instance.document('users/$id');
+
+  CollectionReference get cartReference => firestoreRef.collection('cart');
 
   Future<void> saveData() async {
     await firestoreRef.setData(topMap());

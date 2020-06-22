@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'file:///D:/GitHub/flutter-loja-virtual/lib/models/managers/page_manager.dart';
 import 'package:lojavirtual/ui/common/custom_drawer/custom_drawer.dart';
+import 'package:lojavirtual/ui/screens/home/home_screen.dart';
 import 'package:lojavirtual/ui/screens/products/products_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -15,12 +16,7 @@ class BaseScreen extends StatelessWidget {
         controller: pageController,
         physics: const NeverScrollableScrollPhysics(),
         children: [
-          Scaffold(
-            drawer: CustomDrawer(),
-            appBar: AppBar(
-              title: const Text('Home 1'),
-            ),
-          ),
+          HomeScreen(),
           ProductsScreen(),
           Scaffold(
             drawer: CustomDrawer(),

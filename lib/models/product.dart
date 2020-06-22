@@ -19,6 +19,17 @@ class Product extends ChangeNotifier {
   List<String> images;
   List<ItemSize> sizes;
 
+  num get basePrice {
+    num lowest = double.infinity;
+    for (final size in sizes) {
+      if (size.price < lowest && size.hasStock) {
+        lowest = size.price;
+      }
+    }
+
+    return lowest;
+  }
+
   ItemSize _selectedSize;
   ItemSize get selectedSize => _selectedSize;
   set selectedSize(ItemSize value) {

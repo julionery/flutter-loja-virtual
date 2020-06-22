@@ -11,16 +11,17 @@ class User {
 
   String id;
   String name;
+  String email;
+  String password;
+
+  String confirmPassword;
+
+  bool admin = false;
 
   @override
   String toString() {
     return 'User{id: $id, name: $name, email: $email}';
   }
-
-  String email;
-  String password;
-
-  String confirmPassword;
 
   DocumentReference get firestoreRef =>
       Firestore.instance.document('users/$id');

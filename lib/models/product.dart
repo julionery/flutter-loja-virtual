@@ -120,9 +120,8 @@ class Product extends ChangeNotifier {
         try {
           final ref = await storage.getReferenceFromUrl(image);
           await ref.delete();
-        } catch (e) {
-          debugPrint('Falha ao deletar $image');
-        }
+          // ignore: empty_catches
+        } catch (e) {}
       }
     }
 

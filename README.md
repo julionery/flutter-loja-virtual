@@ -12,6 +12,9 @@
 - [Image Picker](https://pub.dev/packages/image_picker)
 - [Image Cropper](https://github.com/hnvn/flutter_image_cropper)
 - [uuid](https://github.com/Daegalus/dart-uuid)
+- [CEP Aberto](https://cepaberto.com/)
+- [brasil_fields](https://github.com/rubensdemelo/brasil_fields)
+- [dio](https://github.com/flutterchina/dio)
 
 ### :link: Como contribuir
 

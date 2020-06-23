@@ -11,6 +11,7 @@
 - [Provider](https://github.com/rrousselGit/provider)
 - [Image Picker](https://pub.dev/packages/image_picker)
 - [Image Cropper](https://github.com/hnvn/flutter_image_cropper)
+- [uuid](https://github.com/Daegalus/dart-uuid)
 
 ### :link: Como contribuir
 

@@ -25,7 +25,7 @@ class AddressCard extends StatelessWidget {
                     style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
                   ),
                   CepInputField(address),
-                  AddressInputField(address)
+                  AddressInputField(address),
                 ],
               ),
             );

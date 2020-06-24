@@ -8,13 +8,15 @@
 - [Firebase Authentication](https://firebase.google.com/products/auth?hl=pt-br&gclid=Cj0KCQjwoPL2BRDxARIsAEMm9y8XhSHtYRrjL7OPk8hVPM_Qr0_xGwuc7-vYYIZ-VBIAQtphlU3LQlcaAoEAEALw_wcB)
 
 ### :computer: Bibliotecas e ferramentas:
+- [Lint](https://github.com/passsy/dart-lint)
 - [Provider](https://github.com/rrousselGit/provider)
 - [Image Picker](https://pub.dev/packages/image_picker)
 - [Image Cropper](https://github.com/hnvn/flutter_image_cropper)
 - [uuid](https://github.com/Daegalus/dart-uuid)
 - [CEP Aberto](https://cepaberto.com/)
-- [brasil_fields](https://github.com/rubensdemelo/brasil_fields)
-- [dio](https://github.com/flutterchina/dio)
+- [Brasil Fields](https://github.com/rubensdemelo/brasil_fields)
+- [Dio](https://github.com/flutterchina/dio)
+- [Geolocator](https://github.com/Baseflow/flutter-geolocator)
 
 ### :link: Como contribuir
 

@@ -4,12 +4,20 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:lojavirtual/helpers/validators.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
+  @override
+  _SignUpScreenState createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   FocusNode emailFocus = FocusNode();
+
   FocusNode passFocus = FocusNode();
+
   FocusNode confirmPassFocus = FocusNode();
 
   final User user = User();
@@ -39,10 +47,11 @@ class SignUpScreen extends StatelessWidget {
                           const InputDecoration(hintText: 'Nome Completo'),
                       autocorrect: false,
                       validator: (name) {
-                        if (name.isEmpty)
+                        if (name.isEmpty) {
                           return 'Campo obrigatório.';
-                        else if (name.trim().split(' ').length <= 1)
+                        } else if (name.trim().split(' ').length <= 1) {
                           return 'Preencha seu Nome Completo.';
+                        }
                         return null;
                       },
                       onSaved: (name) => user.name = name,

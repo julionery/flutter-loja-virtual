@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lojavirtual/models/address.dart';
+import 'package:lojavirtual/models/managers/cart_manager.dart';
+import 'package:provider/provider.dart';
 
 class AddressInputField extends StatelessWidget {
   final Address address;
@@ -9,15 +11,18 @@ class AddressInputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final primaryColor = Theme.of(context).primaryColor;
+    final cartManager = context.watch<CartManager>();
+
     String emptyValidator(String text) =>
         text.isEmpty ? 'Campo obrigatório' : null;
 
-    final primaryColor = Theme.of(context).primaryColor;
-    if (address.zipCode != null) {
+    if (address.zipCode != null && cartManager.deliveryPrice == null) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           TextFormField(
+            enabled: !cartManager.loading,
             initialValue: address.street,
             decoration: const InputDecoration(
                 isDense: true,
@@ -30,6 +35,7 @@ class AddressInputField extends StatelessWidget {
             children: [
               Expanded(
                 child: TextFormField(
+                  enabled: !cartManager.loading,
                   initialValue: address.number,
                   decoration: const InputDecoration(
                       isDense: true, labelText: 'Número', hintText: '123'),
@@ -44,6 +50,7 @@ class AddressInputField extends StatelessWidget {
               ),
               Expanded(
                 child: TextFormField(
+                  enabled: !cartManager.loading,
                   initialValue: address.complement,
                   decoration: const InputDecoration(
                       isDense: true,
@@ -55,6 +62,7 @@ class AddressInputField extends StatelessWidget {
             ],
           ),
           TextFormField(
+            enabled: !cartManager.loading,
             initialValue: address.district,
             decoration: const InputDecoration(
                 isDense: true, labelText: 'Bairro', hintText: 'Centro'),
@@ -107,14 +115,39 @@ class AddressInputField extends StatelessWidget {
           const SizedBox(
             height: 8,
           ),
+          if (cartManager.loading)
+            LinearProgressIndicator(
+              valueColor: AlwaysStoppedAnimation(primaryColor),
+              backgroundColor: Colors.transparent,
+            ),
           RaisedButton(
             color: primaryColor,
             disabledColor: primaryColor.withAlpha(100),
             textColor: Colors.white,
-            onPressed: () {},
+            onPressed: !cartManager.loading
+                ? () async {
+                    if (Form.of(context).validate()) {
+                      Form.of(context).save();
+                      try {
+                        await context.read<CartManager>().setAddress(address);
+                      } catch (e) {
+                        Scaffold.of(context).showSnackBar(SnackBar(
+                          content: Text('$e'),
+                          backgroundColor: Colors.red,
+                        ));
+                      }
+                    }
+                  }
+                : null,
             child: const Text('Calcular Frete'),
           )
         ],
+      );
+    } else if (address.zipCode != null) {
+      return Padding(
+        padding: const EdgeInsets.only(bottom: 16),
+        child: Text(
+            '${address.street}, ${address.number}\n${address.district}\n${address.city} - ${address.state}'),
       );
     } else {
       return Container();

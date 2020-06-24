@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/cart_product.dart';
 import 'package:lojavirtual/ui/common/custom_icon_button.dart';
+import 'package:lojavirtual/models/cart_product.dart';
 import 'package:provider/provider.dart';
 
 class CartTile extends StatelessWidget {
-  final CartProduct cartProduct;
-
   const CartTile(this.cartProduct);
+
+  final CartProduct cartProduct;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class CartTile extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           child: Row(
-            children: [
+            children: <Widget>[
               SizedBox(
                 height: 80,
                 width: 80,
@@ -28,17 +28,19 @@ class CartTile extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: <Widget>[
                       Text(
                         cartProduct.product.name,
                         style: const TextStyle(
-                            fontWeight: FontWeight.w500, fontSize: 17.0),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 17.0,
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 8),
                         child: Text(
-                          'Tramanho: ${cartProduct.size}',
-                          style: const TextStyle(fontWeight: FontWeight.w300),
+                          'Tamanho: ${cartProduct.size}',
+                          style: TextStyle(fontWeight: FontWeight.w300),
                         ),
                       ),
                       Consumer<CartProduct>(
@@ -48,7 +50,7 @@ class CartTile extends StatelessWidget {
                               'R\$ ${cartProduct.unitPrice.toStringAsFixed(2)}',
                               style: TextStyle(
                                   color: Theme.of(context).primaryColor,
-                                  fontSize: 16,
+                                  fontSize: 16.0,
                                   fontWeight: FontWeight.bold),
                             );
                           } else {
@@ -69,7 +71,7 @@ class CartTile extends StatelessWidget {
               Consumer<CartProduct>(
                 builder: (_, cartProduct, __) {
                   return Column(
-                    children: [
+                    children: <Widget>[
                       CustomIconButton(
                         iconData: Icons.add,
                         color: Theme.of(context).primaryColor,

@@ -7,19 +7,26 @@ import 'package:lojavirtual/models/product/item_size.dart';
 import 'package:uuid/uuid.dart';
 
 class Product extends ChangeNotifier {
-  Product({this.id, this.name, this.description, this.images, this.sizes}) {
+  Product(
+      {this.id,
+      this.name,
+      this.description,
+      this.images,
+      this.sizes,
+      this.deleted = false}) {
     images = images ?? [];
     sizes = sizes ?? [];
   }
 
   Product.fromDocument(DocumentSnapshot document) {
     id = document.documentID;
-    name = document['name'] as String;
-    description = document['description'] as String;
+    name = document.data['name'] as String;
+    description = document.data['description'] as String;
     images = List<String>.from(document.data['images'] as List<dynamic>);
     sizes = (document.data['sizes'] as List<dynamic> ?? [])
         .map((s) => ItemSize.fromMap(s as Map<String, dynamic>))
         .toList();
+    deleted = (document.data['deleted'] ?? false) as bool;
   }
 
   final Firestore firestore = Firestore.instance;
@@ -33,6 +40,7 @@ class Product extends ChangeNotifier {
   String description;
   List<String> images;
   List<ItemSize> sizes;
+  bool deleted;
 
   List<dynamic> newImages;
 
@@ -46,7 +54,7 @@ class Product extends ChangeNotifier {
   num get basePrice {
     num lowest = double.infinity;
     for (final size in sizes) {
-      if (size.price < lowest && size.hasStock) {
+      if (size.price < lowest) {
         lowest = size.price;
       }
     }
@@ -70,7 +78,7 @@ class Product extends ChangeNotifier {
   }
 
   bool get hasStock {
-    return totalStock > 0;
+    return totalStock > 0 && !deleted;
   }
 
   ItemSize findSize(String name) {
@@ -92,6 +100,7 @@ class Product extends ChangeNotifier {
       'name': name,
       'description': description,
       'sizes': exportSizeList(),
+      'deleted': deleted
     };
 
     if (id == null) {
@@ -116,7 +125,7 @@ class Product extends ChangeNotifier {
     }
 
     for (final image in images) {
-      if (!newImages.contains(image)) {
+      if (!newImages.contains(image) && image.contains('firebase')) {
         try {
           final ref = await storage.getReferenceFromUrl(image);
           await ref.delete();
@@ -131,13 +140,18 @@ class Product extends ChangeNotifier {
     loading = false;
   }
 
+  void delete() {
+    firestoreRef.updateData({'deleted': true});
+  }
+
   Product clone() {
     return Product(
         id: id,
         name: name,
         description: description,
         images: List.from(images),
-        sizes: sizes.map((size) => size.clone()).toList());
+        sizes: sizes.map((size) => size.clone()).toList(),
+        deleted: deleted);
   }
 
   @override

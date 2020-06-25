@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:lojavirtual/models/home/page_manager.dart';
 import 'package:lojavirtual/models/user/user_manager.dart';
 import 'package:lojavirtual/ui/common/custom_drawer/custom_drawer.dart';
@@ -16,6 +17,12 @@ class BaseScreen extends StatefulWidget {
 
 class _BaseScreenState extends State<BaseScreen> {
   final PageController pageController = PageController();
+
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  }
 
   @override
   Widget build(BuildContext context) {

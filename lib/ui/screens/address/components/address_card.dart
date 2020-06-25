@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/address.dart';
-import 'package:lojavirtual/models/managers/cart_manager.dart';
+import 'package:lojavirtual/models/cart/cart_manager.dart';
+import 'package:lojavirtual/models/user/address.dart';
 import 'package:lojavirtual/ui/screens/address/components/address_input_field.dart';
 import 'package:lojavirtual/ui/screens/address/components/cep_input_field.dart';
 import 'package:provider/provider.dart';

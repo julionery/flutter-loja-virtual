@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:lojavirtual/models/item_size.dart';
+import 'package:lojavirtual/models/product/item_size.dart';
 import 'package:uuid/uuid.dart';
 
 class Product extends ChangeNotifier {

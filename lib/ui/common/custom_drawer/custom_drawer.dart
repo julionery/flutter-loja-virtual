@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/managers/user_manager.dart';
+import 'package:lojavirtual/models/user/user_manager.dart';
 import 'package:lojavirtual/ui/common/custom_drawer/custom_drawer_header.dart';
 import 'package:lojavirtual/ui/common/custom_drawer/drawer_tile.dart';
 import 'package:provider/provider.dart';

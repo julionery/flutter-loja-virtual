@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/managers/product_manager.dart';
+import 'package:lojavirtual/models/product/product_manager.dart';
 import 'package:provider/provider.dart';
 
 class SelectProductScreen extends StatelessWidget {

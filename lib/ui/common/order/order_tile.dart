@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/order.dart';
-import 'package:lojavirtual/ui/screens/orders/components/order_product_tile.dart';
+import 'package:lojavirtual/models/order/order.dart';
+import 'package:lojavirtual/ui/common/order/order_product_tile.dart';
 
 class OrderTile extends StatelessWidget {
   final Order order;
+  final bool showControls;
 
-  const OrderTile(this.order);
+  const OrderTile(this.order, {this.showControls = false});
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +35,12 @@ class OrderTile extends StatelessWidget {
               ],
             ),
             Text(
-              'Em transporte',
+              order.statusText,
               style: TextStyle(
                   fontWeight: FontWeight.w400,
-                  color: primaryColor,
+                  color: order.status == Status.canceled
+                      ? Colors.red
+                      : primaryColor,
                   fontSize: 14),
             )
           ],

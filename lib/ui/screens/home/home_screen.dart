@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/managers/home_manager.dart';
-import 'package:lojavirtual/models/managers/user_manager.dart';
+import 'package:lojavirtual/models/home/home_manager.dart';
+import 'package:lojavirtual/models/user/user_manager.dart';
 import 'package:lojavirtual/ui/common/custom_drawer/custom_drawer.dart';
 import 'package:lojavirtual/ui/screens/home/components/add_section_widget.dart';
 import 'package:lojavirtual/ui/screens/home/components/section_list.dart';

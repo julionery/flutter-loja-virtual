@@ -1,6 +1,6 @@
 import 'package:alphabet_list_scroll_view/alphabet_list_scroll_view.dart';
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/managers/admin_users_manager.dart';
+import 'package:lojavirtual/models/admin/admin_users_manager.dart';
 import 'package:lojavirtual/ui/common/custom_drawer/custom_drawer.dart';
 import 'package:provider/provider.dart';
 

@@ -1,8 +1,8 @@
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lojavirtual/models/address.dart';
-import 'package:lojavirtual/models/managers/cart_manager.dart';
+import 'package:lojavirtual/models/cart/cart_manager.dart';
+import 'package:lojavirtual/models/user/address.dart';
 import 'package:lojavirtual/ui/common/custom_icon_button.dart';
 import 'package:provider/provider.dart';
 

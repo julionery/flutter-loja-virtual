@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/item_size.dart';
+import 'package:lojavirtual/models/product/item_size.dart';
 import 'package:lojavirtual/ui/common/custom_icon_button.dart';
 
 class EditItemSize extends StatelessWidget {

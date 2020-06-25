@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/managers/home_manager.dart';
-import 'package:lojavirtual/models/section.dart';
+import 'package:lojavirtual/models/home/home_manager.dart';
+import 'package:lojavirtual/models/home/section.dart';
 import 'package:lojavirtual/ui/common/custom_icon_button.dart';
 import 'package:provider/provider.dart';
 

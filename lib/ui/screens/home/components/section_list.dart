@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/managers/home_manager.dart';
-import 'package:lojavirtual/models/section.dart';
+import 'package:lojavirtual/models/home/home_manager.dart';
+import 'package:lojavirtual/models/home/section.dart';
 import 'package:lojavirtual/ui/screens/home/components/add_tile_widget.dart';
 import 'package:lojavirtual/ui/screens/home/components/item_tile.dart';
 import 'package:lojavirtual/ui/screens/home/components/section_header.dart';

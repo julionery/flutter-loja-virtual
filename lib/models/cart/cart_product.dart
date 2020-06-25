@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:lojavirtual/models/item_size.dart';
-import 'package:lojavirtual/models/product.dart';
+import 'package:lojavirtual/models/product/item_size.dart';
+import 'package:lojavirtual/models/product/product.dart';
 
 class CartProduct extends ChangeNotifier {
   CartProduct.fromMap(Map<String, dynamic> map) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/managers/product_manager.dart';
-import 'package:lojavirtual/models/product.dart';
+import 'package:lojavirtual/models/product/product.dart';
+import 'package:lojavirtual/models/product/product_manager.dart';
 import 'package:lojavirtual/ui/screens/edit_product/components/images_form.dart';
 import 'package:lojavirtual/ui/screens/edit_product/components/sizes_form.dart';
 import 'package:provider/provider.dart';

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/managers/page_manager.dart';
-import 'package:lojavirtual/models/managers/user_manager.dart';
+import 'package:lojavirtual/models/home/page_manager.dart';
+import 'package:lojavirtual/models/user/user_manager.dart';
 import 'package:lojavirtual/ui/common/custom_drawer/custom_drawer.dart';
+import 'package:lojavirtual/ui/screens/admin_orders/admin_orders_screen.dart';
 import 'package:lojavirtual/ui/screens/admin_users/admin_users_screen.dart';
 import 'package:lojavirtual/ui/screens/home/home_screen.dart';
 import 'package:lojavirtual/ui/screens/orders/orders_screen.dart';
@@ -37,12 +38,7 @@ class _BaseScreenState extends State<BaseScreen> {
               ),
               if (userManager.adminEnabled) ...[
                 AdminUsersScreen(),
-                Scaffold(
-                  drawer: CustomDrawer(),
-                  appBar: AppBar(
-                    title: const Text('Pedidos'),
-                  ),
-                ),
+                AdminOrdersScreen()
               ]
             ],
           );

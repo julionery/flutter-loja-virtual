@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/managers/home_manager.dart';
-import 'package:lojavirtual/models/managers/product_manager.dart';
-import 'package:lojavirtual/models/product.dart';
-import 'package:lojavirtual/models/section.dart';
-import 'package:lojavirtual/models/section_item.dart';
+import 'package:lojavirtual/models/home/home_manager.dart';
+import 'package:lojavirtual/models/home/section.dart';
+import 'package:lojavirtual/models/home/section_item.dart';
+import 'package:lojavirtual/models/product/product.dart';
+import 'package:lojavirtual/models/product/product_manager.dart';
 import 'package:provider/provider.dart';
 import 'package:transparent_image/transparent_image.dart';
 

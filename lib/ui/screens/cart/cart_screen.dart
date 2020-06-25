@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/managers/cart_manager.dart';
+import 'package:lojavirtual/models/cart/cart_manager.dart';
 import 'package:lojavirtual/ui/common/empty_card.dart';
 import 'package:lojavirtual/ui/common/login_card.dart';
 import 'package:lojavirtual/ui/common/price_card.dart';

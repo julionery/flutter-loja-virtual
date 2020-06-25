@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lojavirtual/models/item_size.dart';
-import 'package:lojavirtual/models/product.dart';
+import 'package:lojavirtual/models/product/item_size.dart';
+import 'package:lojavirtual/models/product/product.dart';
 import 'package:provider/provider.dart';
 
 class SizeWidget extends StatelessWidget {

@@ -7,6 +7,7 @@ import 'package:lojavirtual/models/order/order.dart';
 import 'package:lojavirtual/models/order/orders_manager.dart';
 import 'package:lojavirtual/models/product/product.dart';
 import 'package:lojavirtual/models/product/product_manager.dart';
+import 'package:lojavirtual/models/stores/stores_manager.dart';
 import 'package:lojavirtual/models/user/user_manager.dart';
 import 'package:lojavirtual/ui/screens/address/address_screen.dart';
 import 'package:lojavirtual/ui/screens/base/base_screen.dart';
@@ -18,6 +19,7 @@ import 'package:lojavirtual/ui/screens/login/login_screen.dart';
 import 'package:lojavirtual/ui/screens/product/product_screen.dart';
 import 'package:lojavirtual/ui/screens/select_product/select_product_screen.dart';
 import 'package:lojavirtual/ui/screens/signup/signup_screen.dart';
+import 'package:lojavirtual/ui/screens/stores/stores_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -40,6 +42,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => HomeManager(),
           lazy: false,
+        ),
+        ChangeNotifierProvider(
+          create: (_) => StoresManager(),
         ),
         ChangeNotifierProxyProvider<UserManager, CartManager>(
           create: (_) => CartManager(),
@@ -93,6 +98,8 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(builder: (_) => AddressScreen());
             case '/checkout':
               return MaterialPageRoute(builder: (_) => CheckoutScreen());
+            case '/stores':
+              return MaterialPageRoute(builder: (_) => StoresScreen());
             case '/confirmation':
               return MaterialPageRoute(
                   builder: (_) =>

@@ -17,7 +17,6 @@ class ImageSourceSheet extends StatelessWidget {
     Future<void> editImage(String path) async {
       final File croppedFile = await ImageCropper.cropImage(
           sourcePath: path,
-          aspectRatio: const CropAspectRatio(ratioX: 1.0, ratioY: 1.0),
           androidUiSettings: AndroidUiSettings(
               toolbarTitle: 'Editar Imagem',
               toolbarWidgetColor: Colors.white,
@@ -32,8 +31,14 @@ class ImageSourceSheet extends StatelessWidget {
       }
     }
 
-    Future<void> getImage() async {
+    Future<void> getImageByCamera() async {
       final PickedFile file = await picker.getImage(source: ImageSource.camera);
+      if (file != null) editImage(file.path);
+    }
+
+    Future<void> getImageByGallery() async {
+      final PickedFile file =
+          await picker.getImage(source: ImageSource.gallery);
       if (file != null) editImage(file.path);
     }
 
@@ -46,12 +51,12 @@ class ImageSourceSheet extends StatelessWidget {
           children: [
             FlatButton(
               padding: const EdgeInsets.all(12),
-              onPressed: getImage,
+              onPressed: getImageByCamera,
               child: const Text('Câmera'),
             ),
             FlatButton(
               padding: const EdgeInsets.all(12),
-              onPressed: getImage,
+              onPressed: getImageByGallery,
               child: const Text('Galeria'),
             )
           ],
@@ -68,11 +73,11 @@ class ImageSourceSheet extends StatelessWidget {
         actions: [
           CupertinoActionSheetAction(
             isDefaultAction: true,
-            onPressed: getImage,
+            onPressed: getImageByCamera,
             child: const Text('Câmera'),
           ),
           CupertinoActionSheetAction(
-            onPressed: getImage,
+            onPressed: getImageByCamera,
             child: const Text('Galeria'),
           )
         ],

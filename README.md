@@ -17,6 +17,7 @@
 - [Brasil Fields](https://github.com/rubensdemelo/brasil_fields)
 - [Dio](https://github.com/flutterchina/dio)
 - [Geolocator](https://github.com/Baseflow/flutter-geolocator)
+- [Facebook Login](https://github.com/roughike/flutter_facebook_login)
 
 ### :link: Como contribuir
 

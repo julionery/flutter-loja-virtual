@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lojavirtual/models/home/section.dart';
 import 'package:lojavirtual/models/home/section_item.dart';
-import 'package:lojavirtual/ui/screens/edit_product/components/image_source_sheet.dart';
+import 'package:lojavirtual/ui/common/image_source_sheet.dart';
 import 'package:provider/provider.dart';
 
 class AddTileWidget extends StatelessWidget {

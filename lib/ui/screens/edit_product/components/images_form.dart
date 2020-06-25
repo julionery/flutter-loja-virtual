@@ -4,7 +4,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lojavirtual/models/product/product.dart';
-import 'package:lojavirtual/ui/screens/edit_product/components/image_source_sheet.dart';
+import 'package:lojavirtual/ui/common/image_source_sheet.dart';
 
 class ImagesForm extends StatelessWidget {
   final Product product;

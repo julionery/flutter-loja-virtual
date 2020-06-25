@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:lojavirtual/models/user/address.dart';
 
 class User {
-  User({this.email, this.password, this.name});
+  User({this.id, this.email, this.password, this.name});
 
   User.fromDocument(DocumentSnapshot document) {
     id = document.documentID;

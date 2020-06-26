@@ -1,5 +1,20 @@
 <h1 align="center">Flutter Loja Virtual</h1>
 
+Aplicativo completo de Loja Virtual, com app do cliente e gerente integrados.
+
+### :bookmark_tabs: Funcionalidades: 
+ - Sistema de Login/Cadastro com Facebook ou E-mail e Senha
+ - Login com Facebook
+ - Pesquisa de Produtos
+ - Seleção de Tamanho (P, M, G, GG) com preços diferenciados
+ - Controle de Estoque por Tamanho
+ - Carrinho de Compras
+ - Cálculo de Frete por Distância
+ - Controle do Gerente da Loja Integrado
+ - Tela Inicial Facilmente Customizável
+ - Processo de Adição/Remoção de Produtos Simplificado
+ - Especificação dos Horários de Funcionamento, Contato e Endereço da Loja
+
 ### :rocket: Tecnologias:
 - [Flutter](https://flutter.dev/ "Flutter")
 - [Firebase](https://firebase.google.com/ "Firebase")

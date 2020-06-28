@@ -51,6 +51,10 @@ dependencies:
   url_launcher: ^5.4.11
   map_launcher: ^0.6.0
   cloud_functions: ^0.5.0
+  flip_card: ^0.4.4
+  mask_text_input_formatter: ^1.0.7
+  credit_card_type_detector: ^1.1.0
+  keyboard_actions: ^3.2.1+1
 
 dev_dependencies:
   flutter_test:

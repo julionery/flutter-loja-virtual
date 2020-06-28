@@ -33,6 +33,21 @@ Aplicativo completo de Loja Virtual, com app do cliente e gerente integrados.
 - [Dio](https://github.com/flutterchina/dio)
 - [Geolocator](https://github.com/Baseflow/flutter-geolocator)
 - [Facebook Login](https://github.com/roughike/flutter_facebook_login)
+- [Cielo](https://banzeh.github.io/cielo/)
+- [Cloud Functions](https://github.com/FirebaseExtended/flutterfire/tree/master/packages/cloud_functions/cloud_functions)
+
+### :link: Links Úteis
+- Cloud Functions
+  - [Como começar?](https://firebase.google.com/docs/functions/get-started?hl=pt-br)
+  - [Inicialização das Cloud Functions](https://firebase.google.com/docs/functions/get-started?hl=pt-br#initialize-firebase-sdk-for-cloud-functions)
+  - [Casos de Uso](https://firebase.google.com/docs/functions/use-cases?hl=pt-br)
+  - [Exemplos de Uso (GitHub)](https://github.com/firebase/functions-samples)
+  - [Gatilhos do Firestore](https://firebase.google.com/docs/functions/firestore-events)
+  - [Firebase CLI](https://firebase.google.com/docs/cli?hl=pt-br#windows-npm)
+  
+- Cielo
+  - [Package Cielo](https://github.com/banzeh/cielo)
+  - [Manual de Integração](https://developercielo.github.io/manual/cielo-ecommerce#sobre-o-sandbox)
 
 ### :link: Como contribuir
 

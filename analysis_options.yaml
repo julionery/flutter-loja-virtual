@@ -3,3 +3,4 @@ include: package:lint/analysis_options.yaml
 linter:
   rules:
     prefer_const_literals_to_create_immutables: false
+    use_setters_to_change_properties: false

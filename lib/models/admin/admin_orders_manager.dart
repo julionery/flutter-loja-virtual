@@ -31,8 +31,7 @@ class AdminOrdersManager extends ChangeNotifier {
       output = output.where((o) => o.userId == userFilter.id).toList();
     }
 
-    return output =
-        output.where((o) => statusFilter.contains(o.status)).toList();
+    return output.where((o) => statusFilter.contains(o.status)).toList();
   }
 
   void _listenToOrders() {

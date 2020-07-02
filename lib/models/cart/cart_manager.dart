@@ -63,7 +63,7 @@ class CartManager extends ChangeNotifier {
     } catch (e) {
       final cartProduct = CartProduct.fromProduct(product);
       cartProduct.addListener(_onItemUpdated);
-      items.add(CartProduct.fromProduct(product));
+      items.add(cartProduct);
       user.cartReference
           .add(cartProduct.toCartItemMap())
           .then((doc) => cartProduct.id = doc.documentID);

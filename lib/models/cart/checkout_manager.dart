@@ -4,6 +4,7 @@ import 'package:lojavirtual/models/cart/cart_manager.dart';
 import 'package:lojavirtual/models/cart/credit_card.dart';
 import 'package:lojavirtual/models/order/order.dart';
 import 'package:lojavirtual/models/product/product.dart';
+import 'package:lojavirtual/services/cielo_payment.dart';
 
 class CheckoutManager extends ChangeNotifier {
   CartManager cartManager;
@@ -17,28 +18,58 @@ class CheckoutManager extends ChangeNotifier {
 
   final Firestore firestore = Firestore.instance;
 
+  final CieloPayment cieloPayment = CieloPayment();
+
   // ignore: use_setters_to_change_properties
   void updateCart(CartManager cartManager) {
     this.cartManager = cartManager;
   }
 
   Future<void> checkout(
-      {CreditCard creditCard, Function onStockFail, Function onSuccess}) async {
+      {CreditCard creditCard,
+      Function onStockFail,
+      Function onSuccess,
+      Function onPayFail}) async {
     loading = true;
+
+    final orderId = await _getOrderId();
+
+    String payId;
+
+    try {
+      payId = await cieloPayment.authorize(
+          creditCard: creditCard,
+          price: cartManager.totalPrice,
+          orderId: orderId.toString(),
+          user: cartManager.user);
+
+      debugPrint("success $payId");
+    } catch (e) {
+      onPayFail(e);
+      loading = false;
+      return;
+    }
 
     try {
       await _decrementStock();
     } catch (e) {
+      await cieloPayment.cancel(payId);
       onStockFail(e);
       loading = false;
       return;
     }
 
-    // TODO: PROCESSAR PAGAMENTO
+    try {
+      await cieloPayment.capture(payId);
+    } catch (e) {
+      onPayFail(e);
+      loading = false;
+      return;
+    }
 
-    final orderId = await _getOrderId();
     final order = Order.fromCartManager(cartManager);
     order.orderId = orderId.toString();
+    order.payId = payId;
 
     order.save();
 
@@ -66,10 +97,6 @@ class CheckoutManager extends ChangeNotifier {
   }
 
   Future<void> _decrementStock() {
-    // 1. Ler todos os estoques 3xM
-    // 2. Decremento localmente os estoques 2xM
-    // 3. Salvar os estoques no firebase 2xM
-
     return firestore.runTransaction((tx) async {
       final List<Product> productsToUpdate = [];
       final List<Product> productsWithoutStock = [];

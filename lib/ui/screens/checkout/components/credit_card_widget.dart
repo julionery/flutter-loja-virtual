@@ -18,9 +18,7 @@ class _CreditCardWidgetState extends State<CreditCardWidget> {
   final GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
 
   final FocusNode numberFocus = FocusNode();
-
   final FocusNode dateFocus = FocusNode();
-
   final FocusNode nameFocus = FocusNode();
   final FocusNode cvvFocus = FocusNode();
 

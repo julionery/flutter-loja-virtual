@@ -11,7 +11,7 @@ class CheckoutScreen extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  final CreditCard creditCard = new CreditCard();
+  final CreditCard creditCard = CreditCard();
 
   @override
   Widget build(BuildContext context) {
@@ -65,11 +65,19 @@ class CheckoutScreen extends StatelessWidget {
                       buttonText: 'Finalizar Pedido',
                       onPressed: () {
                         if (formKey.currentState.validate()) {
+                          formKey.currentState.save();
+
                           checkoutManager.checkout(
                               creditCard: creditCard,
                               onStockFail: (e) {
                                 Navigator.of(context).popUntil(
                                     (route) => route.settings.name == '/cart');
+                              },
+                              onPayFail: (e) {
+                                scaffoldKey.currentState.showSnackBar(SnackBar(
+                                  content: Text('$e'),
+                                  backgroundColor: Colors.red,
+                                ));
                               },
                               onSuccess: (order) {
                                 Navigator.of(context).popUntil(

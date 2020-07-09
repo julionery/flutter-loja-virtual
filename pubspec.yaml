@@ -56,6 +56,8 @@ dependencies:
   credit_card_type_detector: ^1.1.0
   keyboard_actions: ^3.2.1+1
   cpf_cnpj_validator: ^1.0.5
+  firebase_messaging: ^6.0.16
+  flushbar: ^1.10.4
 
 dev_dependencies:
   flutter_test:

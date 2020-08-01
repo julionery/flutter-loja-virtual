@@ -15,6 +15,17 @@ Aplicativo completo de Loja Virtual, com app do cliente e gerente integrados.
  - Processo de Adição/Remoção de Produtos Simplificado
  - Especificação dos Horários de Funcionamento, Contato e Endereço da Loja
 
+<h3 align="center">
+    <img width="250px" src="https://github.com/julionery/docs/blob/master/LojaVirtual/user.gif?raw=true">&nbsp;&nbsp;  
+    <img width="250px" src="https://github.com/julionery/docs/blob/master/LojaVirtual/cart.gif?raw=true">
+</h3>
+
+<h3 align="center">
+    <img width="250px" src="https://github.com/julionery/docs/blob/master/LojaVirtual/signin.gif?raw=true">&nbsp;&nbsp;  
+    <img width="250px" src="https://github.com/julionery/docs/blob/master/LojaVirtual/admin.gif?raw=true">
+</h3>
+
+
 ### :rocket: Tecnologias:
 - [Flutter](https://flutter.dev/ "Flutter")
 - [Firebase](https://firebase.google.com/ "Firebase")
